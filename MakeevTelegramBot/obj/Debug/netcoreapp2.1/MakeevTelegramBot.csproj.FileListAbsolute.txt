@@ -1,0 +1,11 @@
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\bin\Debug\netcoreapp2.1\MakeevTelegramBot.deps.json
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\bin\Debug\netcoreapp2.1\MakeevTelegramBot.runtimeconfig.json
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\bin\Debug\netcoreapp2.1\MakeevTelegramBot.runtimeconfig.dev.json
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\bin\Debug\netcoreapp2.1\MakeevTelegramBot.dll
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\bin\Debug\netcoreapp2.1\MakeevTelegramBot.pdb
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\obj\Debug\netcoreapp2.1\MakeevTelegramBot.csprojAssemblyReference.cache
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\obj\Debug\netcoreapp2.1\MakeevTelegramBot.csproj.CoreCompileInputs.cache
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\obj\Debug\netcoreapp2.1\MakeevTelegramBot.AssemblyInfoInputs.cache
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\obj\Debug\netcoreapp2.1\MakeevTelegramBot.AssemblyInfo.cs
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\obj\Debug\netcoreapp2.1\MakeevTelegramBot.dll
+C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\MakeevTelegramBot\obj\Debug\netcoreapp2.1\MakeevTelegramBot.pdb
