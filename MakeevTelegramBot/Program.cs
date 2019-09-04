@@ -20,11 +20,12 @@ namespace MakeevTelegramBot
                 var Updates = API.GetUpdates();
                 foreach (var update in Updates)
                 {
-                    var Question = update.message.text;
+                    var Question = (update.message != null? update.message.text : update.edited_message.text);
                     var Answer = AnswerQuestion(Question);
-                    API.sendMessage(Answer, update.message.chat.id);
+                    API.sendMessage(Answer, (update.message != null? update.message.chat.id : update.edited_message.chat.id));
                 }
             }
+            Console.ReadKey();
         }
 
         static string AnswerQuestion(string UserQuestion)
@@ -61,7 +62,7 @@ namespace MakeevTelegramBot
                 Answers.Add("Я тебя не понимаю");
             }
 
-            return String.Join(",", Answers);
+            return String.Join(" ", Answers);
         }
     }
 }

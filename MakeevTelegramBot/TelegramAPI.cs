@@ -20,6 +20,7 @@ namespace MakeevTelegramBot
         {
             public int update_id { get; set; }
             public Message message { get; set; }
+            public Message edited_message { get; set; }
         }
 
         public class ApiResult
@@ -44,7 +45,7 @@ namespace MakeevTelegramBot
 
         public void sendMessage (string text, int chat_id)
         {
-            sendApiRequest("sendMessage", $"chat_id={chat_id}& text={text}");
+            sendApiRequest("sendMessage", $"chat_id={chat_id}&text={text}");
         }
 
         public Update[] GetUpdates()
@@ -54,8 +55,8 @@ namespace MakeevTelegramBot
             foreach (var update in apiResult.result)
             {
                 Console.WriteLine($"Получен апдейт {update.update_id},"
-                                  + $"сообщение от {update.message.chat.first_name},"
-                                  + $"текст: {update.message.text}");
+                                  + $"сообщение от {(update.message != null? update.message.chat.first_name : update.edited_message.chat.first_name)},"
+                                  + $"текст: {(update.message != null ? update.message.text : update.edited_message.text)}");
                 last_update_id = update.update_id + 1;
             }
             return apiResult.result;
