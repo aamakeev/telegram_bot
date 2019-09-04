@@ -10,37 +10,33 @@ namespace MakeevTelegramBot
 
         static void Main(string[] args)
         {
-            var Data = System.IO.File.ReadAllText(@"C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\json2.json");
+            var Data = System.IO.File.ReadAllText(@"C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\answers.json");
             Questions = JsonConvert.DeserializeObject<Dictionary<string, string>>(Data);
 
-            //Код выполняется при старте программы
+            var API = new TelegramAPI();
 
-            Console.WriteLine("Здравствуйте, вас приветствует бот-помощник, введите Ваш вопрос:");
             while (true)
             {
-                //Код выполняется бесконечное число раз
-                var Result = AnswerQuestion();
-                if (!Result) //Если в переменной Result лежит false
+                var Updates = API.GetUpdates();
+                foreach (var update in Updates)
                 {
-                    return;
+                    var Question = update.message.text;
+                    var Answer = AnswerQuestion(Question);
+                    API.sendMessage(Answer, update.message.chat.id);
                 }
             }
- 
         }
-        static bool AnswerQuestion ()
+
+        static string AnswerQuestion(string UserQuestion)
         {
-            var UserQuestion = Console.ReadLine().ToLower();
+            UserQuestion = UserQuestion.ToLower();
             List<string> Answers = new List<string>();
 
-            
-
-            
-
-            //Console.WriteLine($"Ваш вопрос: {UserQuestion}"); - Так объявляется переменная UserQuestion в строке
+           /* Console.WriteLine($"Ваш вопрос: {UserQuestion}"); *///Так объявляется переменная UserQuestion в строке
 
             foreach (var Question in Questions)
             {
-                if (UserQuestion.Contains (Question.Key))
+                if (UserQuestion.Contains(Question.Key))
                 {
                     Answers.Add(Question.Value);
                 }
@@ -62,18 +58,11 @@ namespace MakeevTelegramBot
 
             if (Answers.Count == 0)
             {
-                Answers.Add("Я тебя не понимаю 🤷‍♂️");
+                Answers.Add("Я тебя не понимаю");
             }
 
-            Console.WriteLine(String.Join(", ", Answers));
-
-
-            if (UserQuestion.Contains("надоело"))
-            {
-                Console.WriteLine("Спасибо, с Вами было приятно общаться!");
-                return false;
-            }
-            return true;
+            return String.Join(",", Answers);
         }
     }
 }
+
