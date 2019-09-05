@@ -10,7 +10,7 @@ namespace MakeevTelegramBot
 
         static void Main(string[] args)
         {
-            var Data = System.IO.File.ReadAllText(@"C:\Users\leha\Documents\ИАЦ\Bot\MakeevTelegramBot\answers.json");
+            var Data = System.IO.File.ReadAllText(@"/home/lehamakeev/bot.answers.json");
             Questions = JsonConvert.DeserializeObject<Dictionary<string, string>>(Data);
 
             var API = new TelegramAPI();
