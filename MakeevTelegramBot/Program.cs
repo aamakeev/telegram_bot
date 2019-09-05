@@ -25,7 +25,7 @@ namespace MakeevTelegramBot
                         var Answer = AnswerQuestion(Question);
                         API.sendMessage(Answer, (update.message != null ? update.message.chat.id : update.edited_message.chat.id));
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         // Log error.
                     }
