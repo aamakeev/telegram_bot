@@ -19,21 +19,24 @@ namespace MakeevTelegramBot
             {
                 var Updates = API.GetUpdates();
                 foreach (var update in Updates)
-                {
-                    var Question = (update.message != null? update.message.text : update.edited_message.text);
-                    var Answer = AnswerQuestion(Question);
-                    API.sendMessage(Answer, (update.message != null? update.message.chat.id : update.edited_message.chat.id));
-                }
+                    try
+                    {
+                        var Question = (update.message != null ? update.message.text : update.edited_message.text);
+                        var Answer = AnswerQuestion(Question);
+                        API.sendMessage(Answer, (update.message != null ? update.message.chat.id : update.edited_message.chat.id));
+                    }
+                    catch (Exception e)
+                    {
+                        // Log error.
+                    }
             }
-            Console.ReadKey();
         }
-
-        static string AnswerQuestion(string UserQuestion)
-        {
+            static string AnswerQuestion(string UserQuestion)
+            {
             UserQuestion = UserQuestion.ToLower();
             List<string> Answers = new List<string>();
 
-           /* Console.WriteLine($"Ваш вопрос: {UserQuestion}"); *///Так объявляется переменная UserQuestion в строке
+            /* Console.WriteLine($"Ваш вопрос: {UserQuestion}"); *///Так объявляется переменная UserQuestion в строке
 
             foreach (var Question in Questions)
             {
@@ -59,11 +62,11 @@ namespace MakeevTelegramBot
 
             if (Answers.Count == 0)
             {
-                Answers.Add("Я тебя не понимаю");
+                Answers.Add("Я тебя не понимаю 🤷‍♂️");
             }
 
             return String.Join(" ", Answers);
-        }
-    }
+            }
+    }   
 }
-
+       
