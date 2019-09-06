@@ -32,8 +32,8 @@ namespace MakeevTelegramBot
             }
             Console.ReadKey();
         }
-            static string AnswerQuestion(string UserQuestion)
-            {
+        static string AnswerQuestion(string UserQuestion)
+        {
             UserQuestion = UserQuestion.ToLower();
             List<string> Answers = new List<string>();
 
@@ -61,13 +61,22 @@ namespace MakeevTelegramBot
                 Answers.Add($"Сегодня {Date}");
             }
 
+            if (UserQuestion.StartsWith("какая погода в городе"))
+            {
+                var Words = UserQuestion.Split(' ');
+                var City = Words[Words.Length - 1];
+
+                var WeatherApi = new Weather();
+                var Forcast = WeatherApi.getWeatherInCity(City);
+                Answers.Add(Forcast);
+            }
+
             if (Answers.Count == 0)
             {
                 Answers.Add("Я тебя не понимаю 🤷‍♂️");
             }
 
             return String.Join(" ", Answers);
-            }
-    }   
+        }
+    }
 }
-       
